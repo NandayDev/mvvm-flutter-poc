@@ -1,0 +1,6 @@
+{
+  "appName": "UFirst Flutter Test",
+  "@appName": {
+    "description": "Name for the application"
+  }
+}
