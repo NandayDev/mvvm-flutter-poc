@@ -2,5 +2,7 @@
   "appName": "UFirst Flutter Test",
   "@appName": {
     "description": "Name for the application"
-  }
+  },
+
+  "errorWhileFetchingQuoteOfTheDay": "Error while fetching quote of the day"
 }

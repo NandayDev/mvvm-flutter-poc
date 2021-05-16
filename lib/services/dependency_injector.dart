@@ -1,23 +1,33 @@
 import 'package:flutter_simple_dependency_injection/injector.dart';
+import 'package:ufirst_flutter_test/services/quote_of_the_day_repository.dart';
+import 'package:ufirst_flutter_test/widgets/quote_of_the_day_viewmodel.dart';
 
+///
+/// Simple implementation of a dependency injector
+///
 class DependencyInjector {
 
   bool _initialized = false;
-  Injector injector;
+  Injector _injector;
 
   ///
-  /// Initializes all the mappings for the D.I.
+  /// Initializes all the mappings for the D.I., for both services and view models
   ///
   void initialize() {
-    injector = Injector();
-    //injector.map<Logger>((i) => LoggerImpl());
+    _injector = Injector();
+
+    // Services //
+    _injector.map<QuoteOfTheDayRepository>((i) => QuoteOfTheDayRepositoryImpl());
+
+    // View models //
+    _injector.map<QuoteOfTheDayViewModel>((i) => QuoteOfTheDayViewModel(resolve()));
   }
 
   ///
   /// Returns an instance of requested service
   ///
   T resolve<T>() {
-    return injector.get<T>();
+    return _injector.get<T>();
   }
 
   ///
