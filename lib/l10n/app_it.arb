@@ -1,4 +1,6 @@
 {
-  "errorWhileFetchingQuoteOfTheDay": "Errore nel tentativo di scaricare la citazione del giorno"
-
+  "errorWhileFetchingQuoteOfTheDay": "Errore nel tentativo di scaricare la citazione del giorno",
+  "saveJournalEntry": "Salva",
+  "journalEntryIncorrectValuesDialogTitle": "Valori errati",
+  "journalEntryIncorrectValuesDialogContent": "Inserisci valori corretti per l'entry del giornale"
 }

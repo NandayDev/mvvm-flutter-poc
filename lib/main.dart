@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
-import 'package:ufirst_flutter_test/widgets/quote_of_the_day_widget.dart';
+import 'package:ufirst_flutter_test/widgets/quote_of_the_day/quote_of_the_day_widget.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {

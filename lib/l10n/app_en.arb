@@ -4,5 +4,10 @@
     "description": "Name for the application"
   },
 
-  "errorWhileFetchingQuoteOfTheDay": "Error while fetching quote of the day"
+  "ok": "OK",
+
+  "errorWhileFetchingQuoteOfTheDay": "Error while fetching quote of the day",
+  "saveJournalEntry": "Save",
+  "journalEntryIncorrectValuesDialogTitle": "Incorrect values",
+  "journalEntryIncorrectValuesDialogContent": "Please insert a valid title and content for the journal entry"
 }
