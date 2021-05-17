@@ -1,40 +1,64 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'journal_entries_viewmodel.dart';
+import 'journal_entry_add_widget.dart';
 
 class JournalEntriesWidget extends ConsumerWidget {
-
   @override
   Widget build(BuildContext context, watch) {
-    return Scaffold(body: ListView.builder(
-        padding: EdgeInsets.all(16.0),
-        itemBuilder: /*1*/ (context, i) {
-          if (i.isOdd) return Divider();
-          /*2*/
+    final JournalEntriesState state =
+        watch(JournalEntriesViewModel.journalEntriesProvider);
 
-          final index = i ~/ 2; /*3*/
+    return Scaffold(
+        body: state.isLoadingEntries
+            ? Center(child: CircularProgressIndicator())
+            : ListView.builder(
+                padding: EdgeInsets.all(16.0),
+                itemBuilder: (context, i) {
+                  if (i.isOdd) return Divider();
 
-          if (index >= _passwords.length) {
-            return null;
-            // _suggestions.addAll(generateWordPairs().take(10)); /*4*/
-          }
-          return PasswordListElement(_passwords[index], widget.repository,
-                  (element) {
-                setState(() {
-                  _passwords = List.from(_passwords)
-                    ..removeAt(_passwords.indexOf(element));
-                });
-              });
-        }),
-    floatingActionButton: FloatingActionButton(
-      tooltip: "",
-      child: Icon(Icons.add),
-      onPressed: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) =>
-                    PasswordCreationPage.createNew()));
-      },
-    ))
+                  final index = i ~/ 2;
+
+                  if (index >= state.journalEntries.length) {
+                    return null;
+                  }
+                  return JournalEntryListElementWidget(
+                      state.journalEntries[index].title,
+                      state.journalEntries[index].content);
+                }),
+        floatingActionButton: FloatingActionButton(
+          tooltip: "",
+          child: Icon(Icons.add),
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => JournalEntryAddWidget()));
+          },
+        ));
+  }
+}
+
+class JournalEntryListElementWidget extends StatelessWidget {
+  JournalEntryListElementWidget(this.title, this.content);
+
+  final String title;
+  final String content;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      margin: EdgeInsets.all(5.0),
+      child: Column(
+        children: [
+          Text(
+            title,
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          Text(content)
+        ],
+      ),
+    );
   }
 }

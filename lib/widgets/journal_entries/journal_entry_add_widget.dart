@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:ufirst_flutter_test/models/journal_entry.dart';
 import 'package:ufirst_flutter_test/services/dependency_injector.dart';
-import 'package:ufirst_flutter_test/services/journal_entries_repository.dart';
 import 'package:ufirst_flutter_test/widgets/journal_entries/journal_entry_add_viewmodel.dart';
 
 class JournalEntryAddWidget extends StatelessWidget {
   JournalEntryAddWidget({Key key}) : super(key: key);
 
-  final JournalEntryAddViewModel _viewModel = DependencyInjector.getInstance().resolve();
+  final JournalEntryAddViewModel _viewModel =
+      DependencyInjector.getInstance().resolve();
 
   final titleTextController = TextEditingController();
   final contentTextController = TextEditingController();
@@ -35,7 +34,9 @@ class JournalEntryAddWidget extends StatelessWidget {
           TextButton(
             child: Text(AppLocalizations.of(context).saveJournalEntry),
             onPressed: () => {
-              if (!_viewModel.areTitleAndContentValid(titleTextController.text, contentTextController.text)) {
+              if (!_viewModel.areTitleAndContentValid(
+                  titleTextController.text, contentTextController.text))
+                {
                   showDialog(
                       context: context,
                       builder: (BuildContext context) {
@@ -51,17 +52,18 @@ class JournalEntryAddWidget extends StatelessWidget {
                             )
                           ],
                         );
-                      });
-                } else {
-                  saveJournalEntry(context)
-              }
+                      })
+                }
+              else
+                {saveJournalEntry(context)}
             },
           )
         ]));
   }
 
   void saveJournalEntry(BuildContext context) async {
-    bool saved = await _viewModel.saveJournalEntry(titleTextController.text, contentTextController.text);
+    bool saved = await _viewModel.saveJournalEntry(
+        titleTextController.text, contentTextController.text);
     if (saved) {
       Navigator.pop(context);
     } else {
