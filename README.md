@@ -1,16 +1,8 @@
-# ufirst_flutter_test
+# UFirst Flutter Test
+Esercizio di test per UFirst.
 
-Dev test for UFirst (Talent4Gig)
+L'app segue i pattern MVVM e repository. I servizi sono tutti creati e gestiti tramite una semplice implementazione di Dependency Injection.
 
-## Getting Started
+**Attualmente l'app è operativa solamente su smartphone Android, per via dell'autenticazione FireBase.** Portarla a funzionare su iOS (ed eventualmente web) non sarebbe un problema, ma non ho un dispositivo Apple a disposizione per testarla.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Alla prima apertura, è probabile che diversi errori di compilazione compaiano nell'IDE, relativi ad AppLocalizations. L'applicazione tuttavia si avvia correttamente.
