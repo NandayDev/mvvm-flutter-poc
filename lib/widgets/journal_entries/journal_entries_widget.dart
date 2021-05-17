@@ -9,8 +9,15 @@ class JournalEntriesWidget extends ConsumerWidget {
     final JournalEntriesState state =
         watch(JournalEntriesViewModel.journalEntriesProvider);
 
+    final JournalEntriesViewModel viewModel = context.read(JournalEntriesViewModel.journalEntriesProvider.notifier);
+
+    if (!state.entriesWereLoaded) {
+      // Starts the entries loading, since they weren't loaded yet //
+      viewModel.loadEntries();
+    }
+
     return Scaffold(
-        body: state.isLoadingEntries
+        body: !state.entriesWereLoaded
             ? Center(child: CircularProgressIndicator())
             : ListView.builder(
                 padding: EdgeInsets.all(16.0),

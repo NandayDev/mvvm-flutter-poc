@@ -33,12 +33,12 @@ class JournalEntriesState {
 
   /// Constructor for loaded entries, ready to be shown
   JournalEntriesState.fromEntries(this.journalEntries) {
-    this.isLoadingEntries = false;
+    this.entriesWereLoaded = true;
   }
 
   /// The list of entries to show to the user
   List<JournalEntry> journalEntries = [];
 
-  /// Whether entries are still being loaded or not
-  bool isLoadingEntries = true;
+  /// Whether entries are still to be loaded or not
+  bool entriesWereLoaded = false;
 }

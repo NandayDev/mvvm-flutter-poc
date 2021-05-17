@@ -1,6 +1,12 @@
 {
+  "error": "Errore",
+
   "errorWhileFetchingQuoteOfTheDay": "Errore nel tentativo di scaricare la citazione del giorno",
-  "saveJournalEntry": "Salva",
+  "journalEntryAddPageTitle": "Aggiungi nota",
+  "journalEntryAddTitleHint": "Digita il titolo",
+  "journalEntryAddContentHint": "Digita il contenuto",
   "journalEntryIncorrectValuesDialogTitle": "Valori errati",
-  "journalEntryIncorrectValuesDialogContent": "Inserisci valori corretti per l'entry del giornale"
+  "journalEntryIncorrectValuesDialogContent": "Inserisci valori corretti per la nota",
+  "saveJournalEntry": "Salva",
+  "journalEntrySaveErrorDialogContent": "Impossibile salvare la nota. Riprova."
 }

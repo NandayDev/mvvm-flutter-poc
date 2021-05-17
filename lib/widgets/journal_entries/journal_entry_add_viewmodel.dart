@@ -7,10 +7,16 @@ class JournalEntryAddViewModel {
 
   final JournalEntriesRepository _repository;
 
+  ///
+  /// Whether the given strings of title and content from the view are valid or not
+  ///
   bool areTitleAndContentValid(String title, String content) {
     return title.isNotEmpty && content.isNotEmpty;
   }
 
+  ///
+  /// Creates and saves the journal entry, via the repository
+  ///
   Future<bool> saveJournalEntry(String title, String content) {
     var journalEntry = JournalEntry.createNew(title, content);
     return _repository.saveJournalEntry(journalEntry);

@@ -5,9 +5,14 @@
   },
 
   "ok": "OK",
+  "error": "Error",
 
   "errorWhileFetchingQuoteOfTheDay": "Error while fetching quote of the day",
-  "saveJournalEntry": "Save",
+  "journalEntryAddPageTitle": "Add journal entry",
+  "journalEntryAddTitleHint": "Enter the title",
+  "journalEntryAddContentHint": "Enter the content",
   "journalEntryIncorrectValuesDialogTitle": "Incorrect values",
-  "journalEntryIncorrectValuesDialogContent": "Please insert a valid title and content for the journal entry"
+  "journalEntryIncorrectValuesDialogContent": "Please insert a valid title and content for the journal entry",
+  "saveJournalEntry": "Save",
+  "journalEntrySaveErrorDialogContent": "Journal entry couldn't be saved. Please try again."
 }

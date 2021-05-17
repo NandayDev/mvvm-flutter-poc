@@ -21,6 +21,7 @@ class JournalEntriesRepositoryImpl implements JournalEntriesRepository {
   Future<List<JournalEntry>> getJournalEntries() async {
     if (_cachedJournalEntries == null) {
       // TODO: get journal entries from firebase
+      await Future.delayed(Duration(seconds: 2));
       _cachedJournalEntries = [];
     }
     return _cachedJournalEntries;
