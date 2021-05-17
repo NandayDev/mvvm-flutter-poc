@@ -7,6 +7,11 @@
   "ok": "OK",
   "error": "Error",
 
+  "loginError": "Failed login. Please try again",
+  "loginErrorTryAgain": "Try again",
+
+  "loginSuccessful": "Login was successful!",
+
   "errorWhileFetchingQuoteOfTheDay": "Error while fetching quote of the day",
   "journalEntryAddPageTitle": "Add journal entry",
   "journalEntryAddTitleHint": "Enter the title",

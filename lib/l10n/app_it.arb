@@ -1,6 +1,11 @@
 {
   "error": "Errore",
 
+  "loginError": "Login fallito. Riprova.",
+  "loginErrorTryAgain": "Try again",
+
+  "loginSuccessful": "Login effettuato!",
+
   "errorWhileFetchingQuoteOfTheDay": "Errore nel tentativo di scaricare la citazione del giorno",
   "journalEntryAddPageTitle": "Aggiungi nota",
   "journalEntryAddTitleHint": "Digita il titolo",

@@ -1,6 +1,8 @@
 import 'package:flutter_simple_dependency_injection/injector.dart';
+import 'package:ufirst_flutter_test/services/authentication_service.dart';
 import 'package:ufirst_flutter_test/services/journal_entries_repository.dart';
 import 'package:ufirst_flutter_test/services/quote_of_the_day_repository.dart';
+import 'package:ufirst_flutter_test/widgets/home/home_viewmodel.dart';
 import 'package:ufirst_flutter_test/widgets/journal_entries/journal_entries_viewmodel.dart';
 import 'package:ufirst_flutter_test/widgets/journal_entries/journal_entry_add_viewmodel.dart';
 import 'package:ufirst_flutter_test/widgets/quote_of_the_day/quote_of_the_day_viewmodel.dart';
@@ -20,13 +22,15 @@ class DependencyInjector {
     _injector = Injector();
 
     // Services //
+    _injector.map<AuthenticationService>((i) => FireBaseAuthenticationService(), isSingleton: true);
     _injector.map<QuoteOfTheDayRepository>((i) => QuoteOfTheDayRepositoryImpl(), isSingleton: true);
-    _injector.map<JournalEntriesRepository>((i) => JournalEntriesRepositoryImpl(), isSingleton: true);
+    _injector.map<JournalEntriesRepository>((i) => FireBaseJournalEntriesRepository(), isSingleton: true);
 
     // View models //
+    _injector.map<HomeViewModel>((i) => HomeViewModel(resolve()));
     _injector.map<QuoteOfTheDayViewModel>((i) => QuoteOfTheDayViewModel(resolve()));
-    _injector.map<JournalEntriesViewModel>((i) => JournalEntriesViewModel(resolve()));
-    _injector.map<JournalEntryAddViewModel>((i) => JournalEntryAddViewModel(resolve()));
+    _injector.map<JournalEntriesViewModel>((i) => JournalEntriesViewModel(resolve(), resolve()));
+    _injector.map<JournalEntryAddViewModel>((i) => JournalEntryAddViewModel(resolve(), resolve()));
   }
 
   ///

@@ -32,16 +32,22 @@ dependencies:
   flutter_simple_dependency_injection: any
 
   # Firebase
-  firebase_core: "0.7.0"
+  firebase_core: ^1.1.1
+  firebase_auth: ^1.1.4
+  google_sign_in: ^4.5.1
+  cloud_firestore: ^2.1.0
 
   # Reactive features
-  flutter_riverpod: "0.14.0"
+  flutter_riverpod: ^0.14.0
 
   # HTTP requests
   http: ^0.13.3
 
   # Icons
   cupertino_icons: ^1.0.0
+
+  # Toasts
+  fluttertoast: ^8.0.6
 
 dev_dependencies:
   flutter_test:

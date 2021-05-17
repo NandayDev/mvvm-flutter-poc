@@ -50,7 +50,7 @@ class JournalEntryAddWidget extends StatelessWidget {
                               actions: [
                                 TextButton(
                                   child: Text(AppLocalizations.of(context).ok),
-                                  onPressed: () => {},
+                                  onPressed: () => Navigator.pop(context),
                                 )
                               ],
                             );
@@ -79,7 +79,7 @@ class JournalEntryAddWidget extends StatelessWidget {
               actions: [
                 TextButton(
                   child: Text(AppLocalizations.of(context).ok),
-                  onPressed: () => {},
+                  onPressed: () => Navigator.pop(context)
                 )
               ],
             );

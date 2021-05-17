@@ -1,9 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ufirst_flutter_test/models/journal_entry.dart';
+import 'package:ufirst_flutter_test/services/authentication_service.dart';
 import 'package:ufirst_flutter_test/services/dependency_injector.dart';
 import 'package:ufirst_flutter_test/services/journal_entries_repository.dart';
 
 class JournalEntriesViewModel extends StateNotifier<JournalEntriesState> {
+
   static final journalEntriesProvider =
       StateNotifierProvider<JournalEntriesViewModel, JournalEntriesState>(
           (ref) {
@@ -11,17 +13,19 @@ class JournalEntriesViewModel extends StateNotifier<JournalEntriesState> {
   });
 
   /// Constructor for D.I.
-  JournalEntriesViewModel(this._repository)
+  JournalEntriesViewModel(this._repository, this._authenticationService)
       : super(JournalEntriesState.empty());
 
   /// Repository for fetching journal entries
   final JournalEntriesRepository _repository;
+  /// Authentication service, to get the user's id
+  final AuthenticationService _authenticationService;
 
   ///
   /// Loads the entries from the repository, and sets the state, to notify the view
   ///
   void loadEntries() async {
-    var entries = await _repository.getJournalEntries();
+    var entries = await _repository.getJournalEntries(_authenticationService.userId);
     state = JournalEntriesState.fromEntries(entries);
   }
 }
