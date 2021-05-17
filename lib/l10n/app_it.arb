@@ -7,6 +7,9 @@
   "loginSuccessful": "Login effettuato!",
 
   "errorWhileFetchingQuoteOfTheDay": "Errore nel tentativo di scaricare la citazione del giorno",
+
+  "journalEntriesEmptyListHint": "Nessuna nota trovata per questo utente. Usa il pulsante in basso a destra per aggiungerne una.",
+
   "journalEntryAddPageTitle": "Aggiungi nota",
   "journalEntryAddTitleHint": "Digita il titolo",
   "journalEntryAddContentHint": "Digita il contenuto",

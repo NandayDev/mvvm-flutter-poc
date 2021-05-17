@@ -67,16 +67,15 @@ class FireBaseAuthenticationService implements AuthenticationService {
     );
     // Once signed in, returns the UserCredential //
     var userCredentials = await FirebaseAuth.instance.signInWithCredential(credential);
-    _firebaseUserId = userCredentials.user.uid;
 
-    // Simple cycle to wait for the FireBase authentication callback to return "authenticated" status (true or false) //
-    // Not pretty and probably not-production fit, but should work as an example //
-    for (var i = 0; i < 20; i++) {
-      if (_userAuthenticationSucceded != null)
-        return _userAuthenticationSucceded;
-      await Future.delayed(Duration(milliseconds: 100));
+    if (userCredentials != null && userCredentials.user != null) {
+      // We're going to use the user's email as an ID, for the sake of simplicity //
+      // Although for production we should probably use user.uid, or some other property //
+      _firebaseUserId = userCredentials.user.email;
+      // Successful authentication //
+      return true;
     }
-
+    // Failed authentication //
     return false;
   }
 
@@ -96,17 +95,17 @@ class FireBaseAuthenticationService implements AuthenticationService {
     if (!_firebaseInitialized) {
       await Firebase.initializeApp();
       // Sets the listener on the FirebaseAuth instance //
-      FirebaseAuth.instance
-          .authStateChanges()
-          .listen((User user) {
-        if (user == null) {
-          print("User is currently signed out");
-          _userAuthenticationSucceded = false;
-        } else {
-          print("User is signed in");
-          _userAuthenticationSucceded = true;
-        }
-      });
+      // FirebaseAuth.instance
+      //     .authStateChanges()
+      //     .listen((User user) {
+      //   if (user == null) {
+      //     print("User is currently signed out");
+      //     _userAuthenticationSucceded = false;
+      //   } else {
+      //     print("User is signed in");
+      //     _userAuthenticationSucceded = true;
+      //   }
+      // });
       _firebaseInitialized = true;
     }
   }

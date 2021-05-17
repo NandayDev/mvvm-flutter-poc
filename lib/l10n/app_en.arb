@@ -13,6 +13,9 @@
   "loginSuccessful": "Login was successful!",
 
   "errorWhileFetchingQuoteOfTheDay": "Error while fetching quote of the day",
+
+  "journalEntriesEmptyListHint": "No journal entries found for this user. Use the below button to add the first one.",
+
   "journalEntryAddPageTitle": "Add journal entry",
   "journalEntryAddTitleHint": "Enter the title",
   "journalEntryAddContentHint": "Enter the content",
