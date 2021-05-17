@@ -24,7 +24,7 @@ class JournalEntriesViewModel extends StateNotifier<JournalEntriesState> {
   ///
   /// Loads the entries from the repository, and sets the state, to notify the view
   ///
-  void loadEntries() async {
+  Future loadEntries() async {
     var entries = await _repository.getJournalEntries(_authenticationService.userId);
     state = JournalEntriesState.fromEntries(entries);
   }

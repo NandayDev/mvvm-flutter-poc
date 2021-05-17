@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ufirst_flutter_test/models/journal_entry.dart';
 
+///
+/// Repository for the journal entries read/write operations
+///
 abstract class JournalEntriesRepository {
   ///
   /// Loads the journal entries from the storage
@@ -28,6 +31,7 @@ class FireBaseJournalEntriesRepository implements JournalEntriesRepository {
           .get();
 
       for (var doc in snapshot.docs) {
+        // Adds a journal entry for each document returned by the backend //
         _cachedJournalEntries.add(
           JournalEntry.withDate(doc["title"], doc["content"], (doc["creationDate"] as Timestamp).toDate())
         );
@@ -39,11 +43,14 @@ class FireBaseJournalEntriesRepository implements JournalEntriesRepository {
   @override
   Future<bool> saveJournalEntry(
       String userId, JournalEntry journalEntry) async {
+
+    // Gets the collection reference //
     CollectionReference journalEntries =
         FirebaseFirestore.instance.collection("journalEntries");
 
     bool saveSuccessful = true;
 
+    // Attempts to add the entry to the collection //
     await journalEntries
         .add({
           "userId": userId,
